@@ -14,14 +14,14 @@ function updateClientQuote(){
  const printSize=n('printW').toLocaleString('ru-RU')+' × '+n('printH').toLocaleString('ru-RU')+' см';
  const amount=x=>allowed?rub(x):'—';
  el('clientSize').textContent=printSize;el('clientQty').textContent=qtyText;el('clientMeters').textContent=meterText;
- el('clientPrintRate').textContent=rub(n('price'))+' за 1 м';
+ el('clientPrintRate').textContent='Стоимость печати за заказ';
  el('clientPrintCount').textContent=meterText;el('clientPrintTotal').textContent=amount(base);
  el('clientTransferRow').classList.toggle('hide',!transfer);el('clientTransferRate').textContent=rub(transferEach)+' за 1 шт.';
  el('clientTransferCount').textContent=qtyText;el('clientTransferTotal').textContent=amount(transferTotal);
  el('clientBankRow').classList.toggle('hide',!bank);el('clientBankRate').textContent='Доплата за безнал · '+bankPct+'%';
  el('clientBankTotal').textContent=amount(surcharge);
  el('clientTotal').textContent=amount(total);el('clientUnit').textContent='Цена за 1 шт.: '+unit;
- const lines=['rakelprint-kmv','РАСЧЁТ СТОИМОСТИ DTF','Размер принта: '+printSize,'Количество изделий: '+qtyText,'Метраж: '+meterText,'','DTF-печать: '+meterText+' × '+rub(n('price'))+'/м = '+amount(base)];
+ const lines=['rakelprint-kmv','РАСЧЁТ СТОИМОСТИ DTF','Размер принта: '+printSize,'Количество изделий: '+qtyText,'Метраж: '+meterText,'','DTF-печать: '+amount(base)];
  if(transfer)lines.push('Перенос: '+qtyText+' × '+rub(transferEach)+'/шт. = '+amount(transferTotal));
  if(bank)lines.push('Доплата за оплату через р/с ('+bankPct+'%): '+amount(surcharge));
  lines.push('','Цена за 1 шт.: '+unit,'ВСЕГО К ОПЛАТЕ: '+amount(total));
