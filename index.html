@@ -26,7 +26,7 @@ function updateClientQuote(){
  if(transfer)lines.push('Перенос: '+qtyText+' × '+rub(transferEach)+'/шт. = '+amount(transferTotal));
  if(bank)lines.push('Доплата за безнал ('+bankPct+'%): '+amount(surcharge));
  lines.push('','Цена за 1 шт.: '+unit,'ВСЕГО К ОПЛАТЕ: '+amount(total));
- clientQuoteText=lines.join('\\n');
+ clientQuoteText=lines.join('\n');
 }
 
 const lengthIds=['printW','printH','printQty','filmW','filmL','gap','edge','reserve','rotate'];
